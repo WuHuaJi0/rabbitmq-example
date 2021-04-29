@@ -14,16 +14,10 @@
     </properties>
 
     <dependencies>
-
-        <!-- https://mvnrepository.com/artifact/com.rabbitmq/amqp-client -->
         <dependency>
             <groupId>com.rabbitmq</groupId>
             <artifactId>amqp-client</artifactId>
             <version>5.12.0</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId></groupId>-->
-<!--            <artifactId>qpid-amqp-1-0-client-jms</artifactId>-->
-<!--        </dependency>-->
     </dependencies>
 </project>
