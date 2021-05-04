@@ -33,5 +33,15 @@ This package shows how the `Producer` and `Consumer` connect to the rabbitmq ser
 The work queue model means there is one Producer send message to a queue, and have two or more `Consumer` listen to the queue.
 Each message could have been received only once.
 
+It is useful in the distributed system. We may deploy many `Consumer` in servers.
+
 The code in this package have one producer and two consumer, the message from producer will send to only one consumer.
 
+
+#### Publish/Subscribe 
+
+![](https://www.rabbitmq.com/img/tutorials/python-three.png)
+
+In this model, a message from `Producer` will send to the exchanger which the type is `fanout`, then the exchanger will deliver the message to queues which had been bind.
+
+In this example, we first declare a `fanout` exchange and two queue, then bind them together. Now we just need specify the exchanger and no long need specify the queue name when we send a message from `Producer`.
