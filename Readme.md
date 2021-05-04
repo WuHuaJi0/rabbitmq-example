@@ -11,7 +11,7 @@ host on [localhost:15672](http://localhost:15672)
 
 
 ### Require the rabbitmq client 
-In java, in order to communicate with rabblitmq, you need to require the rabbitmq client to you code, which is already included in the pom.xml file.
+In java, in order to communicate with rabbitmq, you need to require the rabbitmq client to you code, which is already included in the pom.xml file.
 
 ```
 <dependency>
@@ -45,3 +45,15 @@ The code in this package have one producer and two consumer, the message from pr
 In this model, a message from `Producer` will send to the exchanger which the type is `fanout`, then the exchanger will deliver the message to queues which had been bind.
 
 In this example, we first declare a `fanout` exchange and two queue, then bind them together. Now we just need specify the exchanger and no long need specify the queue name when we send a message from `Producer`.
+
+#### Routing
+
+![](https://www.rabbitmq.com/img/tutorials/direct-exchange.png)
+
+In the Publish/Subscribe model, we are able to broadcast a message to many receivers. In the Routing model, we are able to send a message to subset of queues by specify the RoutingKey.
+
+For example, we may want to send the error message a queue, and the warning/debug/info message to another queue.
+
+The different with Publish/Subscribe model is that we need create a `direct` type of `Exchanger`, then bind the queue and exchanger with a RoutingKey.
+
+When a message has been sent from producer, we not only need specify the Exchanger but specify the RoutingKey as well.
