@@ -57,3 +57,11 @@ For example, we may want to send the error message a queue, and the warning/debu
 The different with Publish/Subscribe model is that we need create a `direct` type of `Exchanger`, then bind the queue and exchanger with a RoutingKey.
 
 When a message has been sent from producer, we not only need specify the Exchanger but specify the RoutingKey as well.
+
+#### Topic 
+
+![](https://www.rabbitmq.com/img/tutorials/python-five.png)
+
+In the Topic model, we create an exchanger which the type is `Topic`.
+
+//to be implemented.
